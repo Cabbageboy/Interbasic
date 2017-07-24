@@ -1,0 +1,174 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  	<!-- Compiled and minified JavaScript -->
+  
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>interview-prepare of Java</title>
+</head>
+
+<body style="padding-left:50px; padding-right:50px">
+
+		<a class='dropdown-button btn' href='#' data-activates='dropdown1'>Module Selector</a>
+
+	  <!-- Dropdown Structure -->
+	  <ul id='dropdown1' class='dropdown-content'>
+	    <li><a href="index.html">C++</a></li>
+	       <li class="divider"></li>
+	    <li><a href="java.html">Java</a></li>
+	    <li class="divider"></li>
+	    <li><a href="#!">Algorithm</a></li>
+	     
+	  </ul>
+	<h1 style="text-align:center">Java</h1>
+	<ul class="collapsible " data-collapsible="accordion">
+	    <li>
+	      <div class="collapsible-header waves-effect waves-light"><i class="material-icons">gavel</i>Basic</div>
+	      <div class="collapsible-body"><span>
+	      	<ul class="collapsible" data-collapsible="accordion">
+	      		<li>
+	      			<div class="collapsible-header waves-effect waves-light"> <i class="material-icons">star</i>Keywords</div>
+	      		 	<div class="collapsible-body"><span>
+	      		 		Final<br>
+						Finally<br>
+						String <br> 
+						Final <br> 
+						Finally <br> 
+						Static <br> 
+						Finalize <br> 
+						Volatile <br> 
+						Transient <br> 
+						Synchronized <br> 
+	      		 	</span></div>
+	      		</li>
+	      		<li>
+	      			<div class="collapsible-header waves-effect waves-light"> <i class="material-icons">star</i>Concepts</div>
+	      		 	<div class="collapsible-body">
+	      		 	<span>
+	      		 		pass by value or reference? <br>
+	      		 		string as immutable type <br>
+	      		 		design of String pool (why?) <br>
+	      		 		string Buffer vs String Builder<br>
+	      		 		 runtime exception vs checked exception<br>
+	      		 		 access: private, public, default, protected<br>
+	      		 		 abstract, native method<br>
+	      		 		 object and primitive type(eg. int vs Integer)<br>
+	      		 		 reflection<br>
+	      		 		 monitor<br>
+	      		 		 interface vs abstract class <br>
+	      		 		 overload, Override<br>
+	      		 		 BIO, NIO, NIO2, AIO<br>
+	      		 		 Ways of Class instantiation:
+      		 		 		<ul style="margin-left:20px">
+      		 		 			<li>1.New<br></li>
+								<li>2.Clone<br></li>
+								<li>3.Class.newinstance<br></li>
+								<li>4.OjectinputStream<br></li>
+								<li>5.Constructor.newinstance<br></li>
+      		 	 			</ul> 
+	      		 	</span>
+	      		 	</div>
+	      		</li>
+	      	</ul>
+
+	      </span></div>
+	    </li>
+
+
+	    <li>
+	      <div class="collapsible-header waves-effect waves-light"><i class="material-icons">wb_incandescent</i>Container</div>
+	      <div class="collapsible-body"> 
+	      		 	 <span>
+	      		 	 	Collection<br>
+	      		 	 	Set<br>
+	      		 	 	List<br>
+	      		 	 	Map<br>
+	      		 		HashMap <br>
+	      		 		ConcurrentHashMap <br>
+						Vector<br>
+						ArrayList<br>
+						Linkedlist<br>
+						Hashset <br>
+						Hashtable<br>
+						Treeset<br>
+	      		 	</span> 
+	       </div>
+	    </li>
+	    <li>
+	      <div class="collapsible-header waves-effect waves-light"><i class="material-icons">delete</i>Garbage Collection (GC) </div>
+	      <div class="collapsible-body"> 
+	      			<ul class="collapsible" data-collapsible="accordion">
+
+		      			<li>
+		      			 	<div class="collapsible-header"><i class="material-icons">send</i>GC roots </div>
+			      		    <div class="collapsible-body">
+			      		    	a) Local variables<br>
+								b) Active java thread<br>
+								c) Static variable <br>
+								d) JNI reference<br>
+			      		    </div>
+			      		</li>
+			      		<li>
+		      			 	<div class="collapsible-header"><i class="material-icons">send</i>Mark and Sweep</div>
+			      		    <div class="collapsible-body">
+				      		    1. The algorithm traverses all object references, starting with the GC roots, and marks every object found as alive.<br>
+				      		    2. All of the heap memory that is not occupied by marked objects is reclaimed. It is simply marked as free, essentially swept free of unused objects.<br>
+
+			      		    </div>
+			      		</li>
+	      		 	</ul>
+
+	       </div>
+	    </li>
+	    
+	    <li>
+	      <div class="collapsible-header waves-effect waves-light"><i class="material-icons">whatshot</i>Internal JVM</div>
+	      <div class="collapsible-body">
+	      <span>
+	      		<ul class="collapsible" data-collapsible="accordion">
+	      		<li>
+	      			<div class="collapsible-header"> <i class="material-icons">forward</i>Class Loader</div>
+	      		 	<div class="collapsible-body"><span>
+	      		 	 	(1) Bootstrap Loader  (2) Extension Loader  (3)Application Loader<br>
+						What is Classloader deletgation?<br>
+
+	      		 	</span></div>
+	      		</li>
+	      		<li>
+	      			<div class="collapsible-header"> <i class="material-icons">forward</i>Area</div>
+	      		 	<div class="collapsible-body"><span>
+	      		 		 Purpose: Bytescode, platform compatible<br>
+						 Area: (1)Method (2)Stack (3)Heap (4)PC register (5)native method area<br>
+						 Young, old, permanent Generation (new, tenured, permgen)<br>
+	      		 	</span></div>
+	      		</li>
+	      		</ul>
+	      </span>
+	      </div>
+	    </li>
+	    <li>
+	    	<div class="collapsible-header waves-effect waves-light"><i class="material-icons">lightbulb_outline</i>Framework</div>
+	        <div class="collapsible-body">
+				Test: JUnit<br>
+				Performance evaluation: visualVM <br>
+				Debug: Jconsole VMconsole<br>
+				J2EE: structs2, Spring (AOP, IoC), Hibernate Lbatis<br>
+				Distrubuted system: Hadoop<br>
+				Deployment: Maven
+	        </div>
+	    </li>
+  	</ul>
+
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+
+</body>
+
+</html>
