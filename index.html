@@ -5,7 +5,7 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+	<link href="css/basic.css" rel="stylesheet">
   	<!-- Compiled and minified JavaScript -->
   
   	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,8 +13,56 @@
 </head>
 
 <body style="padding-left:50px; padding-right:50px">
+	<nav>
+	    <div class="nav-wrapper">
+	      <a href="#" class="brand-logo">&nbsp&nbspInterview Knowledge</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href='#!'>About</a></li>
+	        <li><a href="#!" onclick="div_show()">Login</a></li>
+	      </ul>
+	    </div>
+	</nav>
 
-		<a class='dropdown-button btn' href='#' data-activates='dropdown1'>Module Selector</a>
+	<div id="abc">
+	<!-- popout contact starts-->
+	<div id="popupContact">
+		<h2 align="center">User Login</h2>
+		<div class="row">
+		    <form class="col s12">
+		      <div class="row">
+		        <div class="input-field col s6">
+		          <input id="first_name" type="text" class="validate">
+		          <label for="first_name">First Name</label>
+		        </div>
+		        <div class="input-field col s6">
+		          <input id="last_name" type="text" class="validate">
+		          <label for="last_name">Last Name</label>
+		        </div>
+		      </div>
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <input id="password" type="password" class="validate">
+		          <label for="password">Password</label>
+		        </div>
+		      </div>
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <input id="email" type="email" class="validate">
+		          <label for="email">Email</label>
+		        </div>
+		      </div>
+		      <a class="waves-effect waves-light btn" onclick="form_reset()">Reset</a>
+		      <a class="waves-effect waves-light btn">submit</a>
+		      <a class="waves-effect waves-light btn" onclick="div_show()">Cancel</a>
+ 
+		    </form>
+		  </div>
+
+	</div>
+	<!-- popout contact ends-->
+ 	</div>
+	<br>
+	<a class='dropdown-button btn' href='#' data-activates='dropdown1'>Module Selector</a>
 
 	  <!-- Dropdown Structure -->
 	  <ul id='dropdown1' class='dropdown-content'>
@@ -23,10 +71,12 @@
 	    <li><a href="java.html">Java</a></li>
 	    <li class="divider"></li>
 	    <li><a href="#!">Algorithm</a></li>
+	    <li class="divider"></li>
+	    <li><a href="others.html">Others</a></li>
 	     
 	  </ul>
 	<h1 style="text-align:center">C++</h1>
-	<ul class="collapsible" data-collapsible="accordion">
+	<ul class="collapsible popout"  data-collapsible="accordion">
 	    <li>
 	      <div class="collapsible-header"><i class="material-icons">gavel</i>Basic</div>
 	      <div class="collapsible-body"><span>
@@ -122,7 +172,7 @@
 	    </li>
   	</ul>
 
-
+	<script type="text/javascript" src="js/my.js"></script>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>

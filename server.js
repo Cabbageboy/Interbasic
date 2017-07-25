@@ -47,6 +47,34 @@ http.createServer(
 					readStream.pipe(response);
 		    	});;
 		    }
+		    else if(path.extname(request.url)=='.js'){
+		    	request.url=request.url.slice(1);
+		    	var readStream = fs.createReadStream(request.url);
+		    	readStream.on('error',(error)=>{
+		    			response.write(404);
+		    			response.end();
+		    	}).on('open',()=>{
+		    		response.writeHead(200, {
+						  'Content-Type': 'text/javasrcipt',
+						  'X-Powered-By': 'bacon'
+						});
+					readStream.pipe(response);
+		    	});;
+		    }
+		    else if(path.extname(request.url)=='.css'){
+		    	request.url=request.url.slice(1);
+		    	var readStream = fs.createReadStream(request.url);
+		    	readStream.on('error',(error)=>{
+		    			response.write(404);
+		    			response.end();
+		    	}).on('open',()=>{
+		    		response.writeHead(200, {
+						  'Content-Type': 'text/css',
+						  'X-Powered-By': 'bacon'
+						});
+					readStream.pipe(response);
+		    	});;
+		    }
 		}); 
 	}
 
