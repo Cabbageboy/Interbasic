@@ -20,3 +20,18 @@
 	overflow:auto;
 	z-index: 100;
 }
+
+@media (max-width:450px){
+
+	#title-text{
+		font-size:15px;
+		text-align: left;
+	}
+
+}
+
+@media (min-width: 450px){	
+	.hide_phone{
+		display: none;
+	}
+}

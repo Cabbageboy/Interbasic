@@ -15,13 +15,21 @@
 <body style="padding-left:50px; padding-right:50px">
 	<nav>
 	    <div class="nav-wrapper">
-	      <a href="#" class="brand-logo">&nbsp&nbspInterview Knowledge</a>
+	      <a href="#" data-activates="slide-out" class="button-collapse hide_phone"><i class="material-icons">menu</i></a>
+	      <a href="#" class=" brand-logo " id='title-text'>&nbsp&nbspInterview Knowledge</a>
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
 	        <li><a href='#!'>About</a></li>
 	        <li><a href="#!" onclick="div_show()">Login</a></li>
 	      </ul>
 	    </div>
 	</nav>
+
+	<ul id="slide-out" class="side-nav">
+		    <li><a href='#!' class='waves-effect'>About</a></li>
+		    <li><div class="divider"></div></li>
+        	<li><a href="#!" class='waves-effect' onclick="div_show()">Login</a></li>
+        	<li><div class="divider"></div></li>
+	</ul>
 
 	<div id="abc">
 	<!-- popout contact starts-->
@@ -84,8 +92,8 @@
 	      		<li>
 	      			<div class="collapsible-header"> <i class="material-icons">star</i>Keywords</div>
 	      		 	<div class="collapsible-body"><span>
-	      		 		reference & <br>
-						pointer * <br>
+	      		 		reference (&)<br>
+						pointer (*) <br>
 						#define (marco)<br>
 						virtual<br>
 						unsigned<br>
@@ -148,14 +156,15 @@
 
 
 	    <li>
-	      <div class="collapsible-header"><i class="material-icons">wb_incandescent</i>STL</div>
+	      <div class="collapsible-header"><i class="material-icons">wb_incandescent</i>STL (Standard Template Library)</div>
 	      <div class="collapsible-body"> 
-	      	 
-	      		 
 	      		 	 <span>
 	      		 		vector  <br>
+	      		 		deque<br>
+	      		 		list<br>
+	      		 		pair<br>
 						set/ unordered_set<br>
-						map (red black tree) / unordered_map  <br>
+						map / unordered_map  <br>
 						stack <br>
 						queue/ priority_queue  <br>
 						list<br>
@@ -172,10 +181,12 @@
 	    </li>
   	</ul>
 
-	<script type="text/javascript" src="js/my.js"></script>
+
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/my.js"></script>
+	
 
 </body>
 
