@@ -1,0 +1,61 @@
+	<nav>
+	    <div class="nav-wrapper">
+	      <a href="#" class="brand-logo" id='title-text'>&nbsp&nbspInterview Knowledge</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href='#!'>About</a></li>
+	        <li><a href="#!" onclick="div_show()">Login</a></li>
+	      </ul>
+	    </div>
+	</nav>
+
+ 	<div id="abc">
+	<!-- popout contact starts-->
+	<div id="popupContact">
+		<h2 align="center">User Login</h2>
+		<div class="row">
+		    <form class="col s12">
+		      <div class="row">
+		        <div class="input-field col s6">
+		          <input id="first_name" type="text" class="validate">
+		          <label for="first_name">First Name</label>
+		        </div>
+		        <div class="input-field col s6">
+		          <input id="last_name" type="text" class="validate">
+		          <label for="last_name">Last Name</label>
+		        </div>
+		      </div>
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <input id="password" type="password" class="validate">
+		          <label for="password">Password</label>
+		        </div>
+		      </div>
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <input id="email" type="email" class="validate">
+		          <label for="email">Email</label>
+		        </div>
+		      </div>
+		      <a class="waves-effect waves-light btn" onclick="form_reset()">Reset</a>
+		      <a class="waves-effect waves-light btn">submit</a>
+		      <a class="waves-effect waves-light btn" onclick="div_show()">Cancel</a>
+ 
+		    </form>
+		  </div>
+
+	</div>
+	<!-- popout contact ends-->
+ 	</div>
+	<br>
+	  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Module Selector</a>
+	  <!-- Dropdown Structure -->
+	  <ul id='dropdown1' class='dropdown-content'>
+	    <li><a href="index">C++</a></li>
+	       <li class="divider"></li>
+	    <li><a href="java">Java</a></li>
+	    <li class="divider"></li>
+	    <li><a href="#!">Algorithm</a></li>
+	        <li class="divider"></li>
+	    <li><a href="others">Others</a></li>
+	  </ul>
+
