@@ -1,6 +1,6 @@
-
+ 
 var path = require('path');
-
+const fs=require('fs');
 const express = require('express')
 const app = express()
 
@@ -18,8 +18,8 @@ app.use(function(req,res,next){
 	next();
 })
 
-
-app.get('/:file', function (req, res,next) {
+ 
+app.get('/:name', function (req, res,next) {
 	// var options = {
 	//     root: __dirname + '/public/views/pages',
 	//     dotfiles: 'deny',
@@ -37,15 +37,17 @@ app.get('/:file', function (req, res,next) {
 	//     }
 	// });
 	//console.log(err.stack);
-	res.render('pages/'+req.params.file);
+	if(req.params.name=='vcode'){
+		 
+	}
+	else{
+
+		res.render('pages/'+req.params.name);
+	}
 
 });
 
-
-
 app.use(express.static('public'));
-
-
  
 
 app.listen(12345, function () {

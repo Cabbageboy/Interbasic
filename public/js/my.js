@@ -1,4 +1,4 @@
-
+ 
 var login_from=false;
 // function div_show() {
 // 	if(login_from==false){
@@ -36,4 +36,12 @@ $(document).ready(function(){
     $('.modal').modal();
 });
 
- 
+var request_verify_code=function(){
+   $.ajax({url: "vcode", success: function(result){
+        $("#verify-image").attr('src',result);
+    }, error: function(xhr,status,error){
+
+    }});
+}
+
+
