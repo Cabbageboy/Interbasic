@@ -2,16 +2,33 @@
 	    <div class="nav-wrapper">
 	      <a href="#" data-activates="slide-out" class="button-collapse hide_phone"><i class="material-icons">menu</i></a>
 	      <a href="#" class="brand-logo" id='title-text'>&nbsp&nbspInterview Knowledge</a>
+
+
+
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
 	        <li><a href='#!'>About</a></li>
-	        <li><a href="#modal1" class="waves-effect modal-trigger">Login</a></li>
+	        <% if(user!=null){ %>
+	        	<li><a class="waves-effect"><%= user.name %></a></li>
+	        	<li><a href="/account/profile" class="waves-effect">Profile</a></li>
+	        	<li><a href="/account/logout" class="waves-effect">Logout</a></li>
+	        <% } else{ %>
+	         	<li><a href="#modal1" class="waves-effect modal-trigger">Login</a></li>
+	        <% } %>
 	      </ul>
 
 	      <ul id="slide-out" class="side-nav" style="transform: translateX(-100%);">
 		    <li><a href="#!" class="waves-effect">About</a></li>
 		    <li><div class="divider"></div></li>
+		    <% if(user!=null){ %>
+        	<li><a href="" class="waves-effect"><%= user.name %></a></li>
+        	<li><div class="divider"></div></li>
+        	<li><a href="/account/logout" class="waves-effect">Logout</a></li>
+        	<li><div class="divider"></div></li>
+        	<% } else{ %>
+         
         	<li><a href="#modal1" class="waves-effect modal-trigger">Login</a></li>
         	<li><div class="divider"></div></li>
+        	<% } %>
 		  </ul>
 	    </div>
 	</nav>
@@ -22,18 +39,18 @@
 	<!-- Register page-->
 	<div id="modal1" class="modal">
 	    <div class="modal-content">
-	      <h4 align="center">User Login</h4>
+	      <h4 align="center">Login</h4>
 	      <div class="row">
-		    <form class="col s12">
+		    <form class="col s12" id="loginform" action="/account/login" method="post">
 		      <div class="row">
 		        <div class="input-field col s12">
-		          <input id="email" type="email" class="validate">
+		          <input id="email" name="email" type="email" class="validate">
 		          <label for="email">Email</label>
 		        </div>
 		      </div>
 		      <div class="row">
 		        <div class="input-field col s12">
-		          <input id="password" type="password" class="validate">
+		          <input id="password" name="password" type="password" class="validate">
 		          <label for="password">Password</label>
 		        </div>
 		      </div>
@@ -49,10 +66,10 @@
 	    </div>
 	    <div class="modal-footer row">
 	    	<div class="col  s4">
-	     		<a class="    waves-effect waves-light btn" onclick="form_reset()">Reset</a>
+	     		<a class="waves-effect waves-light btn" onclick="form_reset()">Reset</a>
 	     	</div>
 	     	<div class="col  s4">
-		   		 <a class="waves-effect waves-light btn">Login</a>
+		   		 <a href="javascript:;" onclick="$('#loginform').submit()" class="waves-effect waves-light btn">Login</a>
 		    </div>
 		    <div class="col  s4">
 		 		<a href="#!" class="modal-action modal-close waves-effect waves-green btn">Cancel</a>
@@ -63,12 +80,12 @@
   	<!-- register moduel -->
   	<div id="modal2" class="modal">
 	    <div class="modal-content">
-	      <h4 align="center">User Register</h4>
+	      <h4 align="center">Register</h4>
 	      <div class="row">
-		    <form class="col s12">
+		    <form id="registerform" class="col s12" action="/account/register" method="post">
 		      <div class="row">
 			        <div class="input-field col s12">
-			          <input id="email" type="email" class="validate">
+			          <input id="email" name="email" type="email" class="validate">
 			          <label for="email">Email</label>
 			        </div>
 		      </div>
@@ -84,13 +101,13 @@
 		      </div> -->
 		      <div class="row">
 		        <div class="input-field col s12">
-		          <input id="password" type="password" class="validate">
+		          <input id="password" name="password" type="password" class="validate">
 		          <label for="password">Password</label>
 		        </div>
 		      </div>
 		       <div class="row">
 		        <div class="input-field col s12">
-		          <input id="password" type="password" class="validate">
+		          <input id="password" name="rpassword" type="password" class="validate">
 		          <label for="password">Reinput Password</label>
 		        </div>
 		      </div>
@@ -105,7 +122,7 @@
 		     		<a class="    waves-effect waves-light btn" onclick="form_reset()">Reset</a>
 		     	</div>
 		     	<div class="col m4 s4">
-			    <a class="    waves-effect waves-light btn">Submit</a>
+			    	<a herf="javascript:;" onclick="$('#registerform').submit()" class="waves-effect waves-light btn">Submit</a>
 			    </div>
 			    <div class="col m4 s4">
 			 		<a href="#!" class="modal-action modal-close waves-effect waves-green btn">Cancel</a>
@@ -116,21 +133,21 @@
 
 	<!-- asdad-->
 
-	
+
 	<!-- -->
  	
 	<br>
 	  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Module Selector</a>
 	  <!-- Dropdown Structure -->
 	  <ul id='dropdown1' class='dropdown-content'>
-	    <li><a href="index">C++</a></li>
+	    <li><a href="/index">C++</a></li>
 	    <li class="divider"></li>
-	    <li><a href="java">Java</a></li>
+	    <li><a href="/java">Java</a></li>
 	    <li class="divider"></li>
-	    <li><a href="algorithm">Algorithm</a></li>
+	    <li><a href="/algorithm">Algorithm</a></li>
 	    <li class="divider"></li>
-	    <li><a href="database">Database</a></li>
+	    <li><a href="/database">Database</a></li>
 	    <li class="divider"></li>
-	    <li><a href="others">Others</a></li>
+	    <li><a href="/others">Others</a></li>
 	  </ul>
 

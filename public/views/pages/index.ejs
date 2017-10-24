@@ -7,7 +7,7 @@
 </head>
 
 <body style="padding-left:50px; padding-right:50px">
-	<% include ../partials/header %> 
+	<%- include('../partials/header',{user:user}) %> 
 	<div id="content">
 	<h1 style="text-align:center">C++</h1>
 	<ul class="collapsible popout"  data-collapsible="accordion">
@@ -102,7 +102,7 @@
 	      		What is RAII (resource acquisition is initialization)? <br>
 	      		std::shared_ptr<br>
 	      		std::unique_ptr<br>
-	      		std::auto_prt<br>
+	      		std::auto_ptr<br>
 	      		Boost<br>
 	      		QT/MFC<br>
 	      </span></div>

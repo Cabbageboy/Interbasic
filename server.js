@@ -1,81 +1,73 @@
-var http = require('http');
-var fs = require('fs');
-var qs = require('querystring');
  
-var req= require('request');
-var path=require('path');
-var nets = require('net');
-var HOST = '127.0.0.1';
-var PORT = 12345;
+var setting=require('./config/settings')
+var path = require('path');
+var user_routes=require('./routes/user.authentication');
+var passport=require('passport');
+const fs=require('fs');
+const express = require('express');
+const session = require('express-session')  
+var bodyParser = require('body-parser');
 
-http.createServer(
-	function(request,response){
-		var headers = request.headers;
-			var method =request.method;
-			var url =request.url;
-			var body ='';
-		console.log('request_url='+request.url);
-		request.on('error',function(err){
-			console.error(err);
-			response.write(404);
-		    response.end();
 
-		}).on('data',function(chunk){
-				body+=chunk;
-			
-		}
-		).on('end',function(){
-			response.writeHead(200, {
-				  'Content-Type': 'text/html',
-				  'X-Powered-By': 'bacon'
-			});
-			if(request.url=='/'){
-				var readStream = fs.createReadStream('index.html');
-				readStream.pipe(response);
-		    }
-		    else if(path.extname(request.url)=='.html'){
-		    	request.url=request.url.slice(1);
-		    	var readStream = fs.createReadStream(request.url);
-		    	readStream.on('error',(error)=>{
-		    			response.write(404);
-		    			response.end();
-		    	}).on('open',()=>{
-		    		response.writeHead(200, {
-						  'Content-Type': 'text/html',
-						  'X-Powered-By': 'bacon'
-						});
-					readStream.pipe(response);
-		    	});;
-		    }
-		    else if(path.extname(request.url)=='.js'){
-		    	request.url=request.url.slice(1);
-		    	var readStream = fs.createReadStream(request.url);
-		    	readStream.on('error',(error)=>{
-		    			response.write(404);
-		    			response.end();
-		    	}).on('open',()=>{
-		    		response.writeHead(200, {
-						  'Content-Type': 'text/javasrcipt',
-						  'X-Powered-By': 'bacon'
-						});
-					readStream.pipe(response);
-		    	});;
-		    }
-		    else if(path.extname(request.url)=='.css'){
-		    	request.url=request.url.slice(1);
-		    	var readStream = fs.createReadStream(request.url);
-		    	readStream.on('error',(error)=>{
-		    			response.write(404);
-		    			response.end();
-		    	}).on('open',()=>{
-		    		response.writeHead(200, {
-						  'Content-Type': 'text/css',
-						  'X-Powered-By': 'bacon'
-						});
-					readStream.pipe(response);
-		    	});;
-		    }
-		}); 
+
+
+const app = express();
+
+
+var mongoose= require('mongoose');
+mongoose.connect(setting.dbdir);
+var db = mongoose.connection;
+db.on('error',console.error.bind(console,'connection error'));
+db.once('open',function(){
+
+});
+
+require('./model/user');
+
+app.use(session({
+    // 你喜欢的任意名字作为一个加密用的字符串
+    secret: 'igroup1234567',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize())  
+app.use(passport.session())  
+
+require('./config/passport')();
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
+app.get('/',function(req,res){
+	//res.redirect('views/index.html');
+	res.redirect('/index');
+});
+app.set('views', 'public/views/');
+app.set('view engine', 'ejs');
+
+//log
+app.use(function(req,res,next){
+	console.log("request url="+req.url);
+	next();
+})
+
+ 
+app.get('/:name', function (req, res,next) {
+	if(req.params.name=='vcode'){
+		 
+	}
+	else{
+ 
+		res.render('pages/'+req.params.name,{user:req.user});
 	}
 
-).listen(PORT,'0.0.0.0');
+});
+
+user_routes(app);
+
+app.use(express.static('public'));
+ 
+
+app.listen(setting.port, function () {
+  console.log('Example app listening on port ' + setting.port)
+});
